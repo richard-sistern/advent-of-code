@@ -2,17 +2,6 @@ BeforeAll {
  . $PSCommandPath.Replace('.tests.ps1', '.ps1')
 }
 
-<#
-1-3 a: abcde
-1-3 b: cdefg
-2-9 c: ccccccccc
-
-[string] $char,
-[int] $min,
-[int] $max,
-[string] $password
-#>
-
 Describe "Part 01:Check Password" {
   It "Should be True" {
     Check-Password-Part1 -Char "a" -Min 1 -Max 3 -Password "abcde" | Should -Be $true
@@ -38,7 +27,7 @@ Describe "Part 01" {
     Invoke-Part1 -lines @("1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc") | Should -Be 2
   }
 
-  It "calculate correct number of passwords" {
+  It "Should calculate correct number of passwords" {
     Invoke-Part1 -lines @("16-18 z: jxsfzzjzqhzzlzzczhvz") | Should -Be 0
   }
 }
