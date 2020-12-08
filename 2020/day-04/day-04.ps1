@@ -1,17 +1,28 @@
-
-
 function Invoke-Part1 {
   param (
-
+    $passports
   )
 
-  Return $FALSE
+  $passport = @{}
+  $count = 0
+
+  ForEach ($line in $passports) {
+    if ($line) {
+      $line.Split(' ') | ForEach-Object {
+        $key, $value = $_.Split(':')
+        $passport.Add($key, $value)
+      }
+    }
+    else {
+      # Blank line
+      If ($passport.byr -and $passport.iyr -and $passport.eyr -and $passport.hgt -and $passport.hcl -and $passport.ecl -and $passport.pid) { 
+        $count += 1
+      }
+      $passport = @{}
+    }
+  }
+  $count
 } # Invoke-Part1
 
-function Invoke-Part2 {
-  param (
-
-  )
-
-  Return $FALSE
-} # Invoke-Part2
+# $passports = Get-Content .\day-04-input.txt
+# Invoke-Part1 -passports $passports
