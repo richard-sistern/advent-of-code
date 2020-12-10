@@ -29,5 +29,5 @@ function Invoke-Part2 {
     $seats[0]..$seats[-1] | Where-Object { $_ -notin $seats }
 }
 
-$cards = Get-Content $PSCommandPath.Replace('.ps1', '-input.txt')
-Invoke-Part2 -card $cards
+#$cards = Get-Content $PSCommandPath.Replace('.ps1', '-input.txt')
+#Invoke-Part2 -card $cards
