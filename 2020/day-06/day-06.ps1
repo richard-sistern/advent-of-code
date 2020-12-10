@@ -4,7 +4,7 @@ function Invoke-Part1 {
     )
     #$Questions = Get-Content .\6.input.txt -Delimiter "`n`n"
     $total = $forms | ForEach-Object {
-        ( $_ -split "" | Where-Object { $_ -match "[a-z]" } | Select-Object -Unique  ).Count
+        ( $_ -split "" | Where-Object { $_ -match "[a-z]" } | Select-Object -Unique ).Count
     } | Measure-Object -Sum
     $total.Sum
 } # Invoke-Part1
