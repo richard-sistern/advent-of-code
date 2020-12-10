@@ -28,6 +28,7 @@ a
 a
 
 b
+
 This list represents answers from five groups:
 
 The first group contains one person who answered "yes" to 3 questions: a, b, and c.
