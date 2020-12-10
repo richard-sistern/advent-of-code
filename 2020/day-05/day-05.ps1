@@ -9,7 +9,7 @@ function Invoke-Part1 {
     } | Sort-Object
     
     $seats[-1]
-}
+} # Invoke-Part1
 
 # $cards = Get-Content $PSCommandPath.Replace('.ps1', '-input.txt')
 # Invoke-Part1 -card $cards
@@ -27,7 +27,7 @@ function Invoke-Part2 {
     #$seats[0]
     #$seats[-1]
     $seats[0]..$seats[-1] | Where-Object { $_ -notin $seats }
-}
+} # Invoke-Part2
 
 #$cards = Get-Content $PSCommandPath.Replace('.ps1', '-input.txt')
 #Invoke-Part2 -card $cards
