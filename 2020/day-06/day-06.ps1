@@ -24,7 +24,7 @@ function Invoke-Part2 {
     $total.sum
 } # Invoke-Part2
 
-$forms = Get-Content $PSCommandPath.Replace('.ps1', '-input.txt') -Delimiter ([System.Environment]::NewLine * 2)
-Invoke-Part2 -forms $forms
+#$forms = Get-Content $PSCommandPath.Replace('.ps1', '-input.txt') -Delimiter ([System.Environment]::NewLine * 2)
+#Invoke-Part2 -forms $forms
 
   
