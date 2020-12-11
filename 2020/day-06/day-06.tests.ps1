@@ -4,7 +4,13 @@ BeforeAll {
 }
 
 Describe "day-06 part-01" {
-    It "Returns expected output" {
+    It "Returns correct sum of yes answers" {
         Invoke-Part1 -forms $forms | Should -Be 11
+    }
+}
+
+Describe "day-06 part-02" {
+    It "Returns correct sum of yes answers" {
+        Invoke-Part2 -forms $forms | Should -Be 6
     }
 }
