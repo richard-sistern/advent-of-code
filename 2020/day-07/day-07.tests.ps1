@@ -16,6 +16,6 @@ BeforeAll {
 
 Describe "day-07 part-01" {
     It "Returns correct number of bags" {
-        Invoke-Part1 -rules $rules | Should -Be 4
+        Invoke-Part1 -rules $rules -match_bag 'Shiny Gold' | Should -Be 4
     }
 }
