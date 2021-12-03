@@ -6,12 +6,11 @@ function Invoke-Part1 {
     $count = -1 # Skip the first
 
     foreach ($depth in $depths) {
-        $count += [int]($depth -gt $previousDepth)
+        $count += [int]($depth -gt $previousDepth) # true/false => 1/0
         $previousDepth = $depth
     }
 
     $count
-
 } # Invoke-Part1
 
 $depths = Get-Content $PSCommandPath.Replace('.ps1', '-input.txt')
