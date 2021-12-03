@@ -8,7 +8,6 @@ function Invoke-Part1 {
     foreach ($depth in $depths) {
         $count += [int]($depth -gt $previousDepth)
         $previousDepth = $depth
-
     }
 
     $count
