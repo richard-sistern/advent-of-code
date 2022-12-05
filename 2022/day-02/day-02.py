@@ -13,7 +13,7 @@
 # | C  | Z  | Draw   | (3 + 3) = 6 |
 
 with open("input.txt") as f:
-    lines = f.read().splitlines() 
+    games = f.read().splitlines() 
 
 outcomes = {
     "A X":4,
@@ -29,7 +29,7 @@ outcomes = {
 
 score = 0
 
-for line in lines:
-    score += outcomes[line]
+for game in games:
+    score += outcomes[game]
 
 print(score)
