@@ -11,3 +11,25 @@
 # | C  | X  | Win    | (1 + 6) = 7 |
 # | C  | Y  | Loss   | (2 + 0) = 2 |
 # | C  | Z  | Draw   | (3 + 3) = 6 |
+
+with open("input.txt") as f:
+    lines = f.read().splitlines() 
+
+outcomes = {
+    "A X":4,
+    "A Y":8,
+    "A Z":3,
+    "B X":1,
+    "B Y":5,
+    "B Z":9,
+    "C X":7,
+    "C Y":2,
+    "C Z":6
+}
+
+score = 0
+
+for line in lines:
+    score += outcomes[line]
+
+print(score)
