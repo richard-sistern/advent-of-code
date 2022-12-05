@@ -1,19 +1,24 @@
-def part1(lines):
-    best_elf = 0
+def calorific_counter(lines, slice_by = 1):
+    elves = []
     current_elf = 0
 
     for line in lines:
         if line == '\n':
-            if current_elf > best_elf:
-                best_elf = current_elf
-            current_elf = 0 # Kill the elf!!!
+            elves.append(current_elf) # Add current elf ➕
+            current_elf = 0 # Kill current elf 💀
         else:
-            current_elf += int(line)
-
-    return best_elf
-           
+            current_elf += int(line) # Add calories 🎂
+    elves.sort(reverse=True)
+    
+    return elves[:slice_by]
 
 file = open("input.txt", "r")
-result = part1(file.readlines())
+lines = file.readlines()
 
+result = calorific_counter(lines)
 print(f'Part 1 result: {result}')
+
+result = sum(calorific_counter(lines, 3))
+print(f'Part 2 result: {result}')
+
+
