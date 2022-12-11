@@ -15,12 +15,28 @@ def part_1(rucksacks):
 
     return total_priorities
 
+def part_2(rucksacks):
+    total_priorities = 0
+
+    # Group rucksacks into groups of 3
+    groups = [rucksacks[i:i + 3] for i in range(0, len(rucksacks), 3)]
+    
+    for group in groups:
+        badge = list(set(group[0]) & set(group[1]) & set(group[2])).pop(0)
+
+        total_priorities += alphabet.index(str(badge)) + 1
+
+    return total_priorities
+
 
 with open("input.txt") as f:
     rucksacks = f.read().splitlines()
 
     result = part_1(rucksacks)
     print(f'Part 1 result: {result}')
+
+    result = part_2(rucksacks)
+    print(f'Part 2 result: {result}')
 
    
     
