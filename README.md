@@ -3,6 +3,7 @@
 
  - [2020](https://github.com/richard-sistern/advent-of-code/tree/main/2020)
  - [2021](https://github.com/richard-sistern/advent-of-code/tree/main/2021)
+ - [2022](https://github.com/richard-sistern/advent-of-code/tree/main/2022)
 
 **What is Advent of Code?**
 
