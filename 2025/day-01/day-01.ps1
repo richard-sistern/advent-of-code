@@ -23,10 +23,7 @@ function Invoke-Part1 {
     $position %= 100
     Write-Verbose "Position after wrap (mod 100): $position"
   
-    if ($position -eq 0) 
-    { 
-      $password += 1 
-    }
+    if ($position -eq 0) { $password += 1 }
   }
 
   return $password
@@ -44,6 +41,27 @@ function Invoke-Part2 {
   
   Foreach ($rotation in $rotations) {
     Write-Verbose "Rotation input: $rotation"
+
+    $direction, [int]$distance = [regex]::Matches($rotation, '[LR]+|\d+') | ForEach-Object { $_.Value }
+    Write-Verbose "Direction: $direction and Distance: $distance"
+
+    switch ($direction) {
+      'L' { 
+        if ($position -eq 0) {
+          $password += [Math]::Floor($distance / 100)
+        } elseif ($distance -ge $position) {
+          $password += 1 + [Math]::Floor(($distance - $position) / 100)
+        }
+
+        $position -= $distance
+      }
+      'R' { 
+        $password += [Math]::Floor(($position + $distance) / 100)
+        $position += $distance
+       }
+    }
+
+    $position %= 100
   }
 
   return $password
@@ -52,4 +70,5 @@ function Invoke-Part2 {
 $aoc_input = Get-Content -Path .\day-01-input.txt
 
 Invoke-Part1 -rotations $aoc_input
-Invoke-Part2 -Rotations @("L68", "L30", "R48", "L5", "R60", "L55", "L1", "L99", "R14", "L82") -Verbose
+Invoke-Part2 -rotations $aoc_input
+# Invoke-Part2 -Rotations @("L68", "L30", "R48", "L5", "R60", "L55", "L1", "L99", "R14", "L82") -Verbose
