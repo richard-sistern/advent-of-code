@@ -20,7 +20,7 @@ function Invoke-Part1 {
     }
 
     Write-Verbose "Position before wrap: $position"
-    $position %= 100
+    $position = ($position % 100 + 100) % 100
     Write-Verbose "Position after wrap (mod 100): $position"
   
     if ($position -eq 0) { $password += 1 }
@@ -58,10 +58,12 @@ function Invoke-Part2 {
       'R' { 
         $password += [Math]::Floor(($position + $distance) / 100)
         $position += $distance
-       }
+      }
     }
 
-    $position %= 100
+    # Powershell modulo can return negative numbers, so adjust accordingly
+    $position = ($position % 100 + 100) % 100
+    Write-Verbose "Position after wrap (mod 100): $position"
   }
 
   return $password
