@@ -71,4 +71,3 @@ $aoc_input = Get-Content -Path .\day-01-input.txt
 
 Invoke-Part1 -rotations $aoc_input
 Invoke-Part2 -rotations $aoc_input
-# Invoke-Part2 -Rotations @("L68", "L30", "R48", "L5", "R60", "L55", "L1", "L99", "R14", "L82") -Verbose
