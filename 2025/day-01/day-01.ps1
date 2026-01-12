@@ -69,7 +69,7 @@ function Invoke-Part2 {
   return $password
 } # Invoke-Part2
 
-$aoc_input = Get-Content -Path .\day-01-input.txt
+$aoc_input = $PSCommandPath.Replace('.ps1', '-input.txt')
 
 Invoke-Part1 -rotations $aoc_input
 Invoke-Part2 -rotations $aoc_input
